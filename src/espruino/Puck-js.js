@@ -37,7 +37,8 @@ function onInit() {
     showName: true,
     discoverable: true,
     connectable: true,
-    interval: 500
+    interval: 500,
+    0x180F : E.getBattery()
   });
 
   NRF.on('connect', function (addr) {
