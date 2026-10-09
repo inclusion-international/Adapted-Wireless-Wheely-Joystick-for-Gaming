@@ -91,9 +91,8 @@ void scanCb(ble_gap_evt_adv_report_t* report) {
     report, BLE_GAP_AD_TYPE_COMPLETE_LOCAL_NAME,
     nameBuf, sizeof(nameBuf));
   
-// Configure the name of the Puck.js device to be connected to.
-//if (nameLen == 12 && memcmp(nameBuf, "Puck.js e11f", 3) == 0) {    
-  if (nameLen == 3 && memcmp(nameBuf, "Pck", 3) == 0) {
+// Configure the name of the Puck.js device to be used for the mode change (MOUSE/KEYBOARD).
+  if (nameLen == 12 && memcmp(nameBuf, "Puck.js e11f", 3) == 0) {
     Serial.println("[SCAN] Found 'Puck.js', connecting...");
     Bluefruit.Scanner.stop();
     Bluefruit.Central.connect(report);
