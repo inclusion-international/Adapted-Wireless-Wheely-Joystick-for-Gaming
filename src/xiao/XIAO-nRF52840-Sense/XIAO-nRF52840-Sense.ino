@@ -90,12 +90,16 @@ void scanCb(ble_gap_evt_adv_report_t* report) {
   uint8_t nameLen = Bluefruit.Scanner.parseReportByType(
     report, BLE_GAP_AD_TYPE_COMPLETE_LOCAL_NAME,
     nameBuf, sizeof(nameBuf));
-
+  
+// Configure the name of the Puck.js device to be connected to.
+//if (nameLen == 12 && memcmp(nameBuf, "Puck.js e11f", 3) == 0) {    
   if (nameLen == 3 && memcmp(nameBuf, "Pck", 3) == 0) {
-    Serial.println("[SCAN] Found 'Pck', connecting...");
+    Serial.println("[SCAN] Found 'Puck.js', connecting...");
     Bluefruit.Scanner.stop();
     Bluefruit.Central.connect(report);
     return;
+  } else {
+    Serial.println("Could not find 'Puck.js'");
   }
   Bluefruit.Scanner.resume();
 }
