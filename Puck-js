@@ -34,14 +34,13 @@ function onInit() {
   });
 
   NRF.setAdvertising({}, {
-    name: "Pck",
     showName: true,
     discoverable: true,
     connectable: true,
     interval: 500
   });
 
-  NRF.on('connect', function(addr) {
+  NRF.on('connect', function (addr) {
     digitalPulse(LED2, 1, 200);
     console.log("Connected: " + addr);
     NRF.setConnectionInterval({ minInterval: 100, maxInterval: 200 });
@@ -49,13 +48,14 @@ function onInit() {
     console.log("Sent initial mode: " + (currentMode === 1 ? "GAMEPAD" : "MOUSE"));
   });
 
-  NRF.on('disconnect', function() {
+  NRF.on('disconnect', function () {
     digitalPulse(LED1, 1, 200);
+    NRF.setConnectionInterval({ minInterval: 500, maxInterval: 500 });
     console.log("Disconnected");
   });
 
   // Button pressed down — switch to MOUSE
-  setWatch(function() {
+  setWatch(function () {
     currentMode = 0;
     digitalPulse(LED1, 1, 150);
     if (NRF.getSecurityStatus().connected) {
@@ -65,7 +65,7 @@ function onInit() {
   }, BTN, { repeat: true, edge: 'rising', debounce: 50 });
 
   // Button released — switch back to GAMEPAD
-  setWatch(function() {
+  setWatch(function () {
     currentMode = 1;
     digitalPulse(LED2, 1, 150);
     if (NRF.getSecurityStatus().connected) {
