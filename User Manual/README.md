@@ -6,7 +6,7 @@ If you have a new puck.js, you will have to flash the firmware onto it. You can 
 
 1. Open the [Espruino Web IDE](https://www.espruino.com/ide/) in your browser **with Web Bluetooth support** (e.g. Chrome).
 2. **Connect** the Puck.js in the IDE via Web Bluetooth (Top-left button: <img alt="" src="wb-icon.png" width="5%"/>)
-4. **Open** the firmware [Puck-js](https://raw.githubusercontent.com/inclusion-international/Custom-Game-Station/refs/heads/main/Puck-js) in the Espruino Web IDE.
+4. **Open** the firmware [Puck-js](https://raw.githubusercontent.com/inclusion-international/Adapted-Wireless-Wheely-Joystick-for-Gaming/refs/heads/main/src/espruino/Puck-js.js) in the Espruino Web IDE.
 5. **Click** the "**Send to Espruino (Flash)** <img alt="" src="send-flash.png" width="5%"/>" button in the IDE to upload the firmware to your Puck.js.
    1. When the process is done, a message should appear in the console log on the left side.
 6. **Disconnect** Puck.js from the Espruino IDE.
@@ -27,15 +27,17 @@ If you have a new XIAO board, you will have to flash the firmware onto it. You c
 5. When the download finishes, you are supposed to download library files for the accelerometer and gyroscope. For this, go on **Sketch-> Include Library-> Manage Libraries** and download **Seeed Arduino LSM6DS3** library.
    <img width="401" height="509" alt="image" src="https://github.com/user-attachments/assets/31cc7c5b-8248-4a49-8c49-13245b27d5d7" />
 
-6. When the download process is completed, you have to press _RST_ button twice, quickly on the XIAO board to make it ready to upload firmware.
+6. Open the [XIAO nRF52840 sketch](https://raw.githubusercontent.com/inclusion-international/Adapted-Wireless-Wheely-Joystick-for-Gaming/refs/heads/main/src/xiao/XIAO-nRF52840-Sense.ino) in the Arduino IDE.
+7. Select the port connection of the device through Tools -> Port
+8. Quickly press _RST_ button twice on the XIAO board to make it ready to upload firmware.
    
    <img width="408" height="445" alt="image" src="https://github.com/user-attachments/assets/a5db4661-7a52-4baa-b548-4ce45c6cb4b5" />
 
-8.  Copy this [code](https://raw.githubusercontent.com/inclusion-international/Custom-Game-Station/refs/heads/main/XIAO%20nRF52840%20Sense), and paste it to the Arduino IDE, then click upload icon as attached below.
+9. Click upload icon as attached below.
    
    <img width="659" height="200" alt="image" src="https://github.com/user-attachments/assets/15131c4d-98f4-4949-b8f9-09445e64bd77" />
 
-9. When the download process is completed, your Game-Station is ready to be used. All you need to do is to connect the joystick to the PC that you want to play games, via Bluetooth. Advertising name for the device **XIAO-HID**. You can connect your PC as attached below, and then you can start using the joystick.
+10. When the download process is completed, your Game-Station is ready to be used. All you need to do is to connect the joystick to the PC that you want to play games, via Bluetooth. Advertising name for the device **XIAO-HID**. You can connect your PC as attached below, and then you can start using the joystick.
     <img width="678" height="213" alt="image" src="https://github.com/user-attachments/assets/d3550c94-101c-4bb6-a89f-dfe52703b5e4" />
 
 In order to use the custom game station as a **mouse/keyboard** device you must **pair** it as a **Bluetooth device in the OS Bluetooth device manager**.
